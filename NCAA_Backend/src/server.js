@@ -38,8 +38,9 @@ const root = {
 };
 
 const app = express();
-
+const cors = require("cors");
 // GraphQL endpoint
+app.use(cors());
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   rootValue: root,

@@ -1,8 +1,6 @@
-// App.js (or Home.js in some cases)
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home'; // Import the Home component
+import Home from './pages/Home'; 
 import LatestGameData from './components/LatestGameData';
 import QueryGameId from './components/QueryGameId';
 import './styles/Navigation.css'
@@ -25,9 +23,8 @@ const App = () => {
           </ul>
         </nav>
 
-        {/* Routes should be enclosed in <Routes> */}
         <Routes>
-          <Route path="/" element={<Home />} /> {/* Use the Home component as the homepage */}
+          <Route path="/" element={<Home />} /> 
           <Route path="/latest" element={<LatestGameData />} />
           <Route path="/query" element={<QueryGameId />} />
         </Routes>
