@@ -1,24 +1,30 @@
-type Game {
-  game_id: String
-  season: Int
-  status: String
-  coverage: String
-  neutral_site: Boolean
-  scheduled_date: date
-  gametime: timestamp
-  conference_game: Boolean
-  tournament: String
-  tournament_type: String
-  tournament_round: String
-  tournament_game_no: String
-  attendance: Int
-  lead_changes: Int
-  times_tied: Int
-  periods: Int
-  possession_arrow: String
-  # Add more fields as needed based on your requirements
-}
+const schema = buildSchema(`
 
-type Query {
-  getGameById(game_id: String!): Game
-}
+  type Game {
+    game_id: String
+    season: Int
+    status: String
+    coverage: String
+    neutral_site: Boolean
+    scheduled_date: date
+    gametime: timestamp
+    conference_game: Boolean
+    tournament: String
+    tournament_type: String
+    tournament_round: String
+    tournament_game_no: String
+    attendance: Int
+    lead_changes: Int
+    times_tied: Int
+    periods: Int
+    possession_arrow: String
+    # Add more fields as needed based on your requirements
+  }
+
+  type Query {
+    getGameById(game_id: String!): Game
+    getGameStatsByTeamName(teamName: String!): [GameStats]
+  }
+`);
+
+module.exports = schema;
